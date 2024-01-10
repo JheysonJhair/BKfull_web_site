@@ -27,7 +27,7 @@ exports.getAllInterests = (req, res) => {
 };
 exports.getAllAptitudes = (req, res) => {
   const query =
-    "SELECT tAptitudes.nombre , tAptitudes.porcentaje , tAptitudes.tipo  FROM tUser INNER JOIN tAptitudes ON tUser.idUser = tAptitudes.idUser";
+    "SELECT tAptitudes.nombre , tAptitudes.porcentaje , tAptitudes.tipo  FROM tUser INNER JOIN tAptitudes ON tUser.idUser = tAptitudes.idUser ORDER BY tAptitudes.tipo;";
 
   db.query(query, (err, results) => {
     if (err) {
@@ -41,7 +41,7 @@ exports.getAllAptitudes = (req, res) => {
 
 exports.getAllBriefcase = (req, res) => {
   const query =
-    "SELECT tBriefcase.proyecto , tBriefcase.descripcion , tBriefcase.web , tBriefcase.gitHub, tBriefcase.iconos , tBriefcase.image , tBriefcase.tipo  FROM tUser INNER JOIN tBriefcase ON tUser.idUser = tBriefcase.idUser";
+    "SELECT tBriefcase.proyecto , tBriefcase.descripcion , tBriefcase.web , tBriefcase.gitHub, tBriefcase.iconos , tBriefcase.image , tBriefcase.tipo  , tBriefcase.texto  FROM tUser INNER JOIN tBriefcase ON tUser.idUser = tBriefcase.idUser ORDER BY tBriefcase.tipo;";
 
   db.query(query, (err, results) => {
     if (err) {
