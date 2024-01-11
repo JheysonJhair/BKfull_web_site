@@ -7,7 +7,7 @@ const os = require("os");
 exports.downloadCV = (req, res) => {
   const userId = req.params.userId;
 
-  const query = "SELECT cv FROM tUser WHERE idUser = ?";
+  const query = "SELECT cv FROM tuser WHERE idUser = ?";
 
   db.query(query, [userId], (err, results) => {
     if (err) {
@@ -43,7 +43,7 @@ exports.downloadCV = (req, res) => {
 };
 
 exports.getAllUsers = (req, res) => {
-  const query = "SELECT * FROM tUser";
+  const query = "SELECT * FROM tuser";
 
   db.query(query, (err, results) => {
     if (err) {
@@ -57,7 +57,7 @@ exports.getAllUsers = (req, res) => {
 
 exports.getAllInterests = (req, res) => {
   const query =
-    "SELECT tInterests.nombre , tInterests.icono FROM tUser INNER JOIN tInterests ON tUser.idUser = tInterests.idUser";
+    "SELECT tinterests.nombre , tinterests.icono FROM tuser INNER JOIN tinterests ON tuser.idUser = tinterests.idUser";
 
   db.query(query, (err, results) => {
     if (err) {
@@ -71,7 +71,7 @@ exports.getAllInterests = (req, res) => {
 
 exports.getAllAptitudes = (req, res) => {
   const query =
-    "SELECT tAptitudes.nombre , tAptitudes.porcentaje , tAptitudes.tipo  FROM tUser INNER JOIN tAptitudes ON tUser.idUser = tAptitudes.idUser ORDER BY tAptitudes.tipo;";
+    "SELECT taptitudes.nombre , taptitudes.porcentaje , taptitudes.tipo  FROM tuser INNER JOIN taptitudes ON tuser.idUser = taptitudes.idUser ORDER BY taptitudes.tipo;";
 
   db.query(query, (err, results) => {
     if (err) {
@@ -85,7 +85,7 @@ exports.getAllAptitudes = (req, res) => {
 
 exports.getAllBriefcase = (req, res) => {
   const query =
-    "SELECT tBriefcase.proyecto , tBriefcase.descripcion , tBriefcase.web , tBriefcase.gitHub, tBriefcase.iconos , tBriefcase.image , tBriefcase.tipo  , tBriefcase.texto  FROM tUser INNER JOIN tBriefcase ON tUser.idUser = tBriefcase.idUser ORDER BY tBriefcase.tipo;";
+    "SELECT tbriefcase.proyecto , tbriefcase.descripcion , tbriefcase.web , tbriefcase.gitHub, tbriefcase.iconos , tbriefcase.image , tbriefcase.tipo  , tbriefcase.texto  FROM tuser INNER JOIN tbriefcase ON tuser.idUser = tbriefcase.idUser ORDER BY tbriefcase.tipo;";
 
   db.query(query, (err, results) => {
     if (err) {
