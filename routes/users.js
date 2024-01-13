@@ -15,6 +15,7 @@ router.post('/user/register', userController.createUser);
 router.put('/user/update/:idUser', userController.updateUserById);
 router.delete('/user/delete/:idUser', userController.deleteUserById);
 router.put('/user/updateCV/:idUser', upload.single('cv'), userController.updateCVById);
+router.post('/user/sendEmail', userController.sendEmail);
 
 //Interests
 router.post('/interests/register', interestsController.createInterests);
@@ -30,6 +31,7 @@ router.delete('/aptitudes/delete/:idAptitudes', aptitudesController.deleteAptitu
 router.post('/briefcase/register', briefcaseController.createBriefcase);
 router.put('/briefcase/update/:idBriefcase', briefcaseController.updateBriefcaseById);
 router.delete('/briefcase/delete/:idBriefcase', briefcaseController.deleteBriefcaseById);
+
 
 //Consultas generales
 router.get('/users', userController.getAllUsers);

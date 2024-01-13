@@ -2,6 +2,7 @@ const db = require("../models/db");
 const fs = require("fs");
 const path = require("path");
 const os = require("os");
+const nodemailer = require('nodemailer');
 
 // Crear usuario
 exports.createUser = (req, res) => {
@@ -198,5 +199,41 @@ exports.getAllBriefcase = (req, res) => {
   } catch (error) {
     console.error("Error al obtener todos los proyectos del portafolio:", error);
     res.status(500).json({ error: "Error al obtener todos los proyectos del portafolio" });
+  }
+};
+
+exports.sendEmail = async (req, res) => {
+  try {
+    const { name, phone, email, comments, message } = req.body;
+
+    const destinationEmail = 'jheysonjhairpro@gmail.com';  
+
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+
+    const mailOptions = {
+      from: 'tucorreo@gmail.com',
+      to: destinationEmail,
+      subject: `Nuevo mensaje de ${name}`,
+      text: `
+        Nombre: ${name}
+        Teléfono: ${phone}
+        Correo Electrónico: ${email}
+        Tema: ${comments}
+        Mensaje: ${message}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    res.status(200).json({ message: 'Correo enviado con éxito' });
+  } catch (error) {
+    console.error('Error al enviar el correo electrónico:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
   }
 };

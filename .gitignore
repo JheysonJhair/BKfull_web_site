@@ -1,0 +1,20 @@
+
+# Archivos generados por Visual Studio Code
+.vscode/
+
+# Archivos de construcción y compilación
+build/
+dist/
+
+# Archivos de configuración locales
+.env
+
+# Archivos de logs
+*.log
+
+# Archivos de respaldo y temporales
+*.bak
+*.swp
+*~
+
+# Dependiendo del entorno y del tipo de proyecto, puedes necesitar excluir más archivos o directorios específicos.
