@@ -1,20 +1,15 @@
+# Carpeta node_modules para proyectos Node.js
+node_modules/
 
-# Archivos generados por Visual Studio Code
-.vscode/
+# Archivo de dependencias generado por npm
+package-lock.json
 
-# Archivos de construcción y compilación
-build/
-dist/
+# Carpeta de archivos de caché generados por npm
+npm-debug.log
+
+# Carpeta de archivos generados por yarn
+yarn-error.log
+yarn.lock
 
 # Archivos de configuración locales
 .env
-
-# Archivos de logs
-*.log
-
-# Archivos de respaldo y temporales
-*.bak
-*.swp
-*~
-
-# Dependiendo del entorno y del tipo de proyecto, puedes necesitar excluir más archivos o directorios específicos.

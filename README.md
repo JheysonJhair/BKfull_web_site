@@ -13,7 +13,7 @@ Asegúrate de tener [Node.js](https://nodejs.org/) instalado en tu máquina.
 ## Uso
 
 1. Inicia la aplicación: `npm start`
-2. Abre tu navegador y visita [http://localhost:3000](http://localhost:3000)
+2. Abre tu navegador y visita [http://localhost:6996](http://localhost:6996)
 
 ## Estructura del Proyecto
 
