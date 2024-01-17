@@ -11,5 +11,3 @@ npm-debug.log
 yarn-error.log
 yarn.lock
 
-# Archivos de configuración locales
-.env
